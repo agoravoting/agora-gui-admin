@@ -21,6 +21,8 @@
       <!-- title -->
       <div
         av-abstract-setting
+        short-value="{{ election.title }}"
+        is-disabled="{{ !electionEditable() }}"
         for="title"
         title="avAdmin.basic.title.label"
         description="avAdmin.basic.title.placeholder"
@@ -37,6 +39,8 @@
       <!-- description -->
       <div
         av-abstract-setting
+        short-value="{{ election.description }}"
+        is-disabled="{{ !electionEditable() }}"
         title="avAdmin.basic.description.label"
         for="desc"
         description="avAdmin.basic.description.placeholder"
@@ -55,6 +59,8 @@
       <!-- layout -->
       <div
         av-abstract-setting
+        short-value="{{ election.layout }}"
+        is-disabled="{{ !electionEditable() }}"
         title="avAdmin.basic.layout.label"
         for="layout"
         class="hidden"
@@ -76,6 +82,8 @@
       <!-- theme -->
       <div
         av-abstract-setting
+        short-value="{{ election.presentation.theme }}"
+        is-disabled="{{ !electionEditable() }}"
         title="avAdmin.basic.theme.label"
         for="theme"
         class="hidden"
@@ -97,6 +105,8 @@
       <!-- logo url -->
       <div
         av-abstract-setting
+        short-value="{{ election.logo_url }}"
+        is-disabled="{{ !electionEditable() }}"
         title="avAdmin.basic.logo_url.label"
         for="logo"
         description="avAdmin.basic.logo_url.placeholder"
@@ -113,6 +123,8 @@
       <!-- number of revotes -->
       <div
         av-abstract-setting
+        short-value="{{ election.num_successful_logins_allowed }}"
+        is-disabled="{{ !electionEditable() }}"
         title="avAdmin.basic.num_successful_logins_allowed.label"
         for="num_logins"
         description="avAdmin.basic.num_successful_logins_allowed.placeholder"
