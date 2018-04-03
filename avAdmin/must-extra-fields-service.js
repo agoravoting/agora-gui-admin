@@ -85,7 +85,7 @@ angular.module('avAdmin')
           "must": false,
           "name": "username",
           "type": "text",
-          "func": "normal",
+          "func": "username",
           "required": true,
           "min": 3,
           "max": 200,
