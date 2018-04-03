@@ -108,6 +108,40 @@
     </div>
   </div>
 
+  <!-- func -->
+  <div class="row">
+    <div class="form-group">
+      <label
+        for="fieldFuncInput{{$index}}"
+        class="control-label col-sm-4"
+        ng-i18next="avAdmin.census.fieldFuncLabel">
+      </label>
+      <div class="col-sm-8">
+        <select
+          class="form-control"
+          ng-model="field.func"
+          name="fieldFuncInput{{$index}}"
+          id="fieldFuncInput{{$index}}">
+          <option value="normal" ng-i18next>
+            avAdmin.census.normalOption
+          </option>
+          <option value="email" ng-i18next>
+            avAdmin.census.emailOption
+          </option>
+          <option value="password" ng-i18next>
+            avAdmin.census.passwordOption
+          </option>
+          <option value="tlf" ng-i18next>
+            avAdmin.census.tlfOption
+          </option>
+          <option value="code" ng-i18next>
+            avAdmin.census.codeOption
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
   <!-- reg expr -->
   <div
     class="row"

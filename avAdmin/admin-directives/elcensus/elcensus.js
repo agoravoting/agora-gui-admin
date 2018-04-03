@@ -27,7 +27,6 @@ angular.module('avAdmin')
       Plugins,
       SendMsg,
       $modal,
-      MustExtraFieldsService,
       $filter,
       $stateParams,
       $timeout,
@@ -264,6 +263,12 @@ angular.module('avAdmin')
                   Plugins.hook('census-csv-load-error', error);
                 });
           }
+      }
+
+      function getExtraFields() {
+        return _.filter(scope.election.census.extra_fields, function (ef) {
+          return ef.func !== "code";
+        });
       }
 
       function addToCensus(textarea) {
@@ -538,6 +543,7 @@ angular.module('avAdmin')
       scope.$on("$destroy", function() { delete scope.resizeSensor; });
 
       angular.extend(scope, {
+        getExtraFields: getExtraFields,
         addToCensus: addToCensus,
         addPersonModal: addPersonModal,
         addCsvModal: addCsvModal,
@@ -580,7 +586,6 @@ angular.module('avAdmin')
       function main() {
         scope.electionLoaded = true;
         scope.election = ElectionsApi.currentElection;
-        MustExtraFieldsService(scope.election);
         if (scope.page === 1 && !newElection()) {
           reloadCensus();
         }

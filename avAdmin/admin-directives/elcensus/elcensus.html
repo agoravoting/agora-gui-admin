@@ -100,7 +100,7 @@
             >
             </div>
           </th>
-          <th ng-repeat="field in election.census.extra_fields">
+          <th ng-repeat="field in getExtraFields()">
             {{ field.name| htmlToText }}
           </th>
           <th ng-i18next>avAdmin.census.actionsDropdown</th>
@@ -138,7 +138,7 @@
               avAdmin.census.notVoted
             </span>
           </td>
-          <td ng-repeat="field in election.census.extra_fields" av-census-field>
+          <td ng-repeat="field in getExtraFields()" av-census-field>
           </td>
           <td class="census-actions">
             <span ng-repeat="command in row_commands"
@@ -155,7 +155,7 @@
         <tr ng-if="!loading && filteredVoters().length === 0 && election.census.voters.length > 0">
           <td
             class="wide text-muted"
-            colspan="{{election.census.extra_fields.length + 4}}"
+            colspan="{{getExtraFields().length + 4}}"
             ng-i18next>
             avAdmin.census.filteredEmptyResults
           </td>
@@ -163,7 +163,7 @@
         <tr ng-if="!loading && election.census.voters.length === 0">
           <td
             class="wide text-muted"
-            colspan="{{election.census.extra_fields.length + 4}}"
+            colspan="{{getExtraFields().length + 4}}"
             ng-i18next>
             avAdmin.census.emptyCensus
           </td>
@@ -171,7 +171,7 @@
         <tr ng-if="loading">
           <td
             class="wide text-muted"
-            colspan="{{election.census.extra_fields.length + 4}}">
+            colspan="{{getExtraFields().length + 4}}">
             <i class="fa fa-cog fa-spin fa-sw"></i>
             <span ng-i18next>loading</span>
           </td>

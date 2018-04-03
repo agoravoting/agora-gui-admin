@@ -37,4 +37,9 @@ angular.module('avAdmin')
       $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
       };
+      $scope.getExtraFields = function () {
+        return _.filter(election.census.extra_fields, function (ef) {
+          return ef.func !== "code";
+        });
+      };
     });

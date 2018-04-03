@@ -16,7 +16,9 @@
 **/
 
 angular.module('avAdmin')
-  .directive('avAdminElauth', ['ConfigService', 'ElectionsApi', 'NextButtonService', 'Plugins', function(ConfigService, ElectionsApi, NextButtonService, Plugins) {
+  .directive('avAdminElauth',
+             ['ConfigService', 'ElectionsApi', 'NextButtonService', 'Plugins', 'MustExtraFieldsService',
+             function(ConfigService, ElectionsApi, NextButtonService, Plugins, MustExtraFieldsService) {
     // we use it as something similar to a controller here
     function link(scope, element, attrs) {
         scope.election = ElectionsApi.currentElection;
@@ -70,11 +72,20 @@ angular.module('avAdmin')
 
           scope.$evalAsync(function () {
             if (newVal !== oldVal) {
+              MustExtraFieldsService(scope.election);
+
               if ('email' !== newVal) {
                 removeRequiredExtra("email");
               } 
               if ('sms' !== newVal) {
                 removeRequiredExtra("tlf");
+              }
+              if ('email' !== newVal && 'sms' !== newVal) {
+                removeRequiredExtra("code");
+              }
+              if ('user-and-password' !== newVal) {
+                removeRequiredExtra("username");
+                removeRequiredExtra("password");
               }
             }
           });

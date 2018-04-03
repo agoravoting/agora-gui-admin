@@ -28,7 +28,6 @@ angular.module('avAdmin')
       $window,
       $state,
       ElectionsApi,
-      MustExtraFieldsService,
       ConfigService,
       NextButtonService)
     {
