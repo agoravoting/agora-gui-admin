@@ -30,6 +30,9 @@ angular.module('avAdmin')
               newcensus[field.name] = "";
             }
           }
+          if(field.func !== 'normal') {
+            newcensus[field.func] = newcensus[field.name];
+          }
         }
         $modalInstance.close();
       };
