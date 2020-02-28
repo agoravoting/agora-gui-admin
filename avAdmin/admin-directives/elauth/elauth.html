@@ -28,40 +28,23 @@
                   </div>
     </div>
 
-    <!-- SMS conf -->
-    <div ng-if="election.census.auth_method === 'sms' || election.census.auth_method === 'sms-otp'">
-        <div
-          av-abstract-setting
-          short-value="{{ election.census.config.msg }}"
-          title="avAdmin.auth.sms"
-          for="auth"
-          description=""
-          help-path="election/auth-sms/">
-                    <p class="text-muted" ng-i18next> avAdmin.auth.smstemp </p>
-                    <textarea class="form-control" ng-model="election.census.config.msg"></textarea>
-        </div>
+    <div
+        av-abstract-setting
+        short-value="{{ election.census.config.subject }}"
+        title="avAdmin.auth.emailsub"
+        for="email-sub"
+        description=""
+        help-path="election/auth-email-subject/">
+                <input type="text" id="email-sub" class="form-control" ng-model="election.census.config.subject"/>
     </div>
-
-    <!-- Email conf -->
-    <div ng-if="election.census.auth_method === 'email' || election.census.auth_method === 'email-otp'">
-        <div
-          av-abstract-setting
-          short-value="{{ election.census.config.subject }}"
-          title="avAdmin.auth.emailsub"
-          for="email-sub"
-          description=""
-          help-path="election/auth-email-subject/">
-                    <input type="text" id="email-sub" class="form-control" ng-model="election.census.config.subject"/>
-        </div>
-        <div
-          av-abstract-setting
-          short-value="{{ election.census.config.msg }}"
-          title="avAdmin.auth.email"
-          for="email-text"
-          description="avAdmin.auth.emailtemp"
-          help-path="election/auth-email-email/">
-                    <textarea class="form-control" id="email-text" ng-model="election.census.config.msg"></textarea>
-        </div>
+    <div
+        av-abstract-setting
+        short-value="{{ election.census.config.msg }}"
+        title="avAdmin.auth.email"
+        for="email-text"
+        description="avAdmin.auth.emailtemp"
+        help-path="election/auth-email-email/">
+                <textarea class="form-control" id="email-text" ng-model="election.census.config.msg"></textarea>
     </div>
 
     <button ng-click="goNext(admin.censusConfig())" ng-if="!election.id" class="btn btn-block btn-success" ng-i18next>next</button>
