@@ -124,7 +124,7 @@ angular.module('avAdmin')
       };
 
       function calcPercent (index) {
-        return index*100.0/csvLoadService.scope.exportList.length;
+        return (index*100.0/csvLoadService.scope.exportList.length).toFixed(2);
       }
 
       function censusCall(id, census, opt) {
