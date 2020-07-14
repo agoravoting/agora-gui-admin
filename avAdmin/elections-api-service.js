@@ -506,8 +506,8 @@ angular.module('avAdmin')
           var deferred = $q.defer();
 
           if (size === 'max') {
-            size = 500;
-          } else if (angular.isNumber(size) && size > 0 && size < 500) {
+            size = 200;
+          } else if (angular.isNumber(size) && size > 0 && size < 200) {
             size = parseInt(size);
           } else {
             size = 10;
@@ -549,7 +549,7 @@ angular.module('avAdmin')
             page = 1;
           }
           params.page = page;
-          params.size = size;
+          params.n = size;
           _.extend(params, filterOptions);
           if (filterStr && filterStr.length > 0) {
             params.filter = filterStr;

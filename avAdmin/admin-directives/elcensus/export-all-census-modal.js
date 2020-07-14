@@ -17,8 +17,18 @@
 
 angular.module('avAdmin')
   .controller('ExportAllCensusModal',
-    function($scope, $modalInstance, ElectionsApi, election, ConfigService) {
+    function(
+      $scope,
+      $modalInstance,
+      ElectionsApi,
+      election,
+      ConfigService,
+      filterStr,
+      filterOptions
+    ) {
       $scope.election = angular.copy(election);
+      $scope.filterStr = angular.copy(filterStr);
+      $scope.filterOptions = angular.copy(filterOptions);
       $scope.totalCensusCount = $scope.election.data.total_count;
       $scope.election.census.voters = [];
       $scope.currentCount = 0; // start from zero as we use a different page size
@@ -39,8 +49,15 @@ angular.module('avAdmin')
         }
         $scope.downloading = true;
 
-        ElectionsApi.getCensus($scope.election, $scope.page, "max")
-          .then(function(el) {
+        ElectionsApi.getCensus(
+          $scope.election, 
+          $scope.page, 
+          "max", 
+          $scope.filterStr, 
+          $scope.filterOptions
+        )
+          .then(function(el) 
+          {
             $scope.page += 1;
 
             $scope.totalCensusCount = el.data.total_count;
