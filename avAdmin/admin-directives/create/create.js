@@ -837,7 +837,8 @@ angular.module('avAdmin')
 
             var d = {
                 auth_method: el.census.auth_method,
-                has_ballot_boxes: el.census.has_ballot_boxes,
+                has_ballot_boxes: el.has_ballot_boxes,
+                ballot_boxes: el.ballot_boxes,
                 census: el.census.census,
                 auth_method_config: el.census.config,
                 extra_fields: [],
