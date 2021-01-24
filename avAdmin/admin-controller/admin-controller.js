@@ -159,8 +159,11 @@ angular.module('avAdmin').controller('AdminController',
                   .then(
                     function (perm) {
                       if (
-                        el.census.has_ballot_boxes &&
-                        perm.indexOf('list-ballot-boxes') !== -1
+                        el.has_ballot_boxes &&
+                        (
+                          perm.indexOf('edit') !== -1 ||
+                          perm.indexOf('list-ballot-boxes') !== -1
+                        )
                       ) {
                         $scope.sidebarlinks.splice(
                           1, 
